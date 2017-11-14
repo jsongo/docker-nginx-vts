@@ -4,6 +4,8 @@ LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 
 ENV NGINX_VERSION 1.13.6
 
+COPY ./nginx-module-vts /nginx-module-vts
+
 RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
 		--prefix=/etc/nginx \
@@ -21,7 +23,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 		--http-scgi-temp-path=/var/cache/nginx/scgi_temp \
 		--user=nginx \
 		--group=nginx \
-		--add-module=./nginx-module-vts \
+		--add-module=/nginx-module-vts \
 		--with-http_ssl_module \
 		--with-http_realip_module \
 		--with-http_addition_module \

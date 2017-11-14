@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nginx:
+    build: .
+    image: nginx
+    container_name: nginx
+    #net: host
+    ports:
+        - 80:80
+    restart: always
+    volumes:
+        - /data/code:/data/code
+        - /etc/nginx:/etc/nginx
+        - /etc/letsencrypt:/etc/letsencrypt
+        - /var/log/nginx:/var/log/nginx

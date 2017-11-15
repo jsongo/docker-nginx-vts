@@ -2,12 +2,11 @@ version: '3'
 
 services:
   nginx:
-    build: .
-    image: nginx
+    image: jsongo/nginx
     container_name: nginx
-    #net: host
-    ports:
-        - 80:80
+    network_mode: host
+    #ports:
+        #- 80:80
     restart: always
     volumes:
         - /data/code:/data/code
